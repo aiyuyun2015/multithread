@@ -14,7 +14,7 @@ def monitor():
         requests_per_second = 0
 
 
-def connect(host='127.0.0.1', port=33333):
+def connect(host='127.0.0.1', port=33334):
     global requests_per_second
 
     sock = socket.socket()
@@ -24,6 +24,8 @@ def connect(host='127.0.0.1', port=33333):
         sock.sendall(b'0')
         sock.recv(4096)
         requests_per_second += 1
+
+    sock.close()
 
 
 if __name__ == '__main__':
